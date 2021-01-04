@@ -28,6 +28,16 @@ long double expon (int b)
 int
 main ()
 {
+  printf("         1000\n");
+  printf("        ------\n");
+  printf("        .\n");
+  printf("         .     (-1)^k.x^k            x^2    x^3\n");
+  printf("e^(-x) =  .    ----------- = 1 - x + ---- + -----   .....  \n");
+  printf("         .           k!               2!     3!  \n");
+  printf("        .\n");
+  printf("        ------\n");
+  printf("          k=0\n");
+  
   long double ex;
   int a, d;
    printf ("Enter a value for e^-x calculation \n");
