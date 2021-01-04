@@ -3,37 +3,38 @@
 #include <math.h>
 
 
-int expon (int b)
+long double expon (int b)
 {
    int n, f, c;
-   long double fir,put,sum; //fir- first term/next term,put-penultimate term,sum-tayylor series sum
+   long double fir,put, lat, sum;
    float dif;
    fir=pow(-1,n)*pow(b,n)/1;
    sum=fir;
-   for (dif=1,n = 1;n<=1000 ; n++) //loop for n=1 to n=1000
-    {put=fir;
+   for (dif=1,n = 1;n<=1000 ; n++)
+    {lat=put;
       fir = fir*(-1)*b/n;
       sum = sum + fir;
       dif=sum-exp(-b);
+    put=fir;
       if (dif<0)
       dif=-dif;
-      if (dif<=3e-6){    //minimum difference between real exp value and talor series value
+      if (dif<=3e-6){
           printf("Penultimate term = %Lf\n",put);
-          printf("Last term = %Lf\n",fir);
-          printf ("Value through taylor series = %Lf\n", sum);
-          printf("Difference between e^(-%d) and Taylor series value = %f \n",b,dif);
-          return 0;
-      }
+          printf("Last term = %Lf\n",lat);
+      return sum;}
        }
 }
 
 int
 main ()
 {
+  long double ex;
   int a, d;
    printf ("Enter a value for e^-x calculation \n");
  scanf ("%d", &a);
   printf ("Exponential real value e^-%d = %f \n", a, exp (-a));
-   expon(a);
+   ex = expon (a);
+   printf ("Value through taylor series = %Lf\n", ex);
+   printf("Diference between real avlue and Taylor series sum : %Lf",exp(-a)-ex);
    return 0;
 }
