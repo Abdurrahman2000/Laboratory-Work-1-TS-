@@ -1,4 +1,9 @@
 # Laboratory-Work-1-TS- Code for Taylor series calculation of exponential (-x) 
+
+Since the taylor series sum cannot obtain the exact value of the function itself, 
+The sum loop is set to run based on the difference between the real function and the closest value the taylor series has to offer.
+
+
 #include <stdio.h>
 #include <math.h>
 
